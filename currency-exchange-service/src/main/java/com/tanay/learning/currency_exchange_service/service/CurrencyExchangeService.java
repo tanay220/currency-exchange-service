@@ -22,7 +22,7 @@ public class CurrencyExchangeService {
         Optional<CurrencyExchangeEntity> optionalCurrencyExchangeEntity = currencyExchangeRepository.findByFromAndTo(from, to);
         if (optionalCurrencyExchangeEntity.isEmpty())
             throw new RuntimeException("Currency exchange details from: " + from + "to: " + to + " not found in DB");
-        return new CurrencyExchangeResponse(from, to, optionalCurrencyExchangeEntity.get().getMultiple(), environment.getProperty("local.server.port"));
+        return new CurrencyExchangeResponse(optionalCurrencyExchangeEntity.get().getId(), from, to, optionalCurrencyExchangeEntity.get().getMultiple(), environment.getProperty("local.server.port"));
 
     }
 }

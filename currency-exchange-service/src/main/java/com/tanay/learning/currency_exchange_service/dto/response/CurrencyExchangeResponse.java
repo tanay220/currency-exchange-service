@@ -3,19 +3,30 @@ package com.tanay.learning.currency_exchange_service.dto.response;
 import java.math.BigDecimal;
 
 public class CurrencyExchangeResponse {
+
+
+    private Long id;
     private String from;
     private String to;
 
     private BigDecimal multiple;
     private String environment;
 
-    public CurrencyExchangeResponse(String from, String to, BigDecimal multiple, String environment) {
+    public CurrencyExchangeResponse(Long id, String from, String to, BigDecimal multiple, String environment) {
+        this.id = id;
         this.from = from;
         this.to = to;
         this.multiple = multiple;
         this.environment = environment;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFrom() {
         return from;
